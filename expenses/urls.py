@@ -19,9 +19,10 @@ from django.urls import path, include
 from django.shortcuts import redirect
 
 def redirect_to_receipt_list(request):
-    return redirect("/receipts/")
+    return redirect("home")
 
 urlpatterns = [
+    path("accounts/", include("accounts.urls")),
     path("", redirect_to_receipt_list),
     path("receipts/", include("receipts.urls")),
     path("admin/", admin.site.urls),
